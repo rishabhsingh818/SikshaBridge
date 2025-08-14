@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, HelpCircle, Lightbulb, Mic } from "lucide-react";
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const FeatureCard = ({
   icon,
@@ -25,6 +26,12 @@ const FeatureCard = ({
 );
 
 export default function Home() {
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
@@ -35,10 +42,10 @@ export default function Home() {
               <span className="ml-3 text-2xl font-bold">ShikshaAI</span>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
-              <Link href="#" className="hover:text-primary transition-colors">
+              <Link href="/" className="hover:text-primary transition-colors">
                 Home
               </Link>
-              <Link href="#" className="hover:text-primary transition-colors">
+              <Link href="#features" className="hover:text-primary transition-colors">
                 Features
               </Link>
               <Link href="#" className="hover:text-primary transition-colors">
@@ -49,8 +56,12 @@ export default function Home() {
               </Link>
             </nav>
             <div className="flex items-center space-x-2">
-              <Button variant="outline" className="text-foreground border-primary hover:bg-primary hover:text-primary-foreground">Login</Button>
-              <Button>Sign Up</Button>
+              <Link href="/login">
+                <Button variant="outline" className="text-foreground border-primary hover:bg-primary hover:text-primary-foreground">Login</Button>
+              </Link>
+              <Link href="/signup">
+                <Button>Sign Up</Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -84,7 +95,9 @@ export default function Home() {
                   <p className="mt-4 text-lg text-gray-300">
                     ShikshaAI simplifies textbooks, generates quizzes, and provides personalized guidance to help you succeed.
                   </p>
-                  <Button size="lg" className="mt-8">Get Started</Button>
+                  <Link href="/signup">
+                    <Button size="lg" className="mt-8">Get Started</Button>
+                  </Link>
                 </div>
               </div>
             </div>
