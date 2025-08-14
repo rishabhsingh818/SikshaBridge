@@ -46,7 +46,9 @@ export default function Home() {
         </Tabs>
       </main>
       <footer className="py-4 text-center text-sm text-muted-foreground">
-        {currentYear ? `© ${currentYear} ShikshaAI. All rights reserved.` : ''}
+        <p suppressHydrationWarning>
+          {currentYear ? `© ${currentYear} ShikshaAI. All rights reserved.` : ''}
+        </p>
       </footer>
     </div>
   );
