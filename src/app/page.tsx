@@ -61,9 +61,9 @@ export default function Home() {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://placehold.co/1920x1080.png')",
+                "url('https://firebasestudio.googleapis.com/v0/b/studioc-727a2.appspot.com/o/cache%2Fuser%2F12a50a7c-a49e-4e42-9988-152069818817%2Fupload%2FvPik44eE4q6B.png?alt=media&token=c19ac750-a92c-41be-9f93-41c3c6d73dfa')",
             }}
-            data-ai-hint="learning education students"
+            data-ai-hint="mountain night"
           >
             <span
               id="blackOverlay"
