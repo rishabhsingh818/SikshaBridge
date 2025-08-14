@@ -73,13 +73,13 @@ export default function Home() {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://placehold.co/1920x1080.png')",
+                "url('https://placehold.co/1920x1080/000000/FFFFFF.png')",
             }}
             data-ai-hint="mountain night"
           >
             <span
               id="blackOverlay"
-              className="w-full h-full absolute opacity-20 bg-black"
+              className="w-full h-full absolute opacity-50 bg-black"
             ></span>
           </div>
           <div className="container relative mx-auto">
