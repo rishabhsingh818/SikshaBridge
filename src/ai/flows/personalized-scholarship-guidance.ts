@@ -35,7 +35,7 @@ const getScholarshipInfo = ai.defineTool(
     }),
     outputSchema: z.string(),
   },
-  async (input) => {
+  async function (input) {
     // Placeholder implementation to return scholarship information based on location and grade.
     // In a real application, this would fetch data from a database or external API.
     return `Scholarship information for students in ${input.location} in grade ${input.grade}.`;
