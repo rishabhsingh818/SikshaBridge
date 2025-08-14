@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function GuidancePage() {
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-black via-blue-950 to-black text-foreground flex flex-col">
        <header className="sticky top-0 z-50 bg-background/50 backdrop-blur-lg border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
