@@ -71,11 +71,6 @@ export default function Home() {
         <div className="relative pt-32 pb-32 flex content-center items-center justify-center min-h-[90vh]">
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
-            style={{
-              backgroundImage:
-                "url('https://placehold.co/1920x1080/000000/FFFFFF.png')",
-            }}
-            data-ai-hint="mountain night"
           >
             <span
               id="blackOverlay"
