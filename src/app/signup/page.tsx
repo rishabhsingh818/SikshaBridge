@@ -11,6 +11,21 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from "@/hooks/use-toast";
 import Link from 'next/link';
 
+function getFirebaseAuthErrorMessage(errorCode: string): string {
+    switch (errorCode) {
+        case 'auth/email-already-in-use':
+            return 'This email address is already in use by another account.';
+        case 'auth/invalid-email':
+            return 'The email address is not valid.';
+        case 'auth/operation-not-allowed':
+            return 'Email/password accounts are not enabled. Please enable it in the Firebase console.';
+        case 'auth/weak-password':
+            return 'The password is too weak. It must be at least 6 characters long.';
+        default:
+            return 'An unknown error occurred. Please try again.';
+    }
+}
+
 export default function SignupPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,11 +54,12 @@ export default function SignupPage() {
       });
       router.push('/'); // Redirect to a dashboard or home page after signup
     } catch (error: any) {
-      setError(error.message);
+      const errorMessage = getFirebaseAuthErrorMessage(error.code);
+      setError(errorMessage);
       toast({
         variant: "destructive",
         title: "Signup Failed",
-        description: error.message,
+        description: errorMessage,
       });
     }
   };
