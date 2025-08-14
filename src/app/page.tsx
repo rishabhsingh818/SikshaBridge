@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/app/Header";
 import { LanguageTutor } from "@/components/app/LanguageTutor";
@@ -6,7 +9,12 @@ import { ScholarshipGuidance } from "@/components/app/ScholarshipGuidance";
 import { BookOpen, Lightbulb, Award } from "lucide-react";
 
 export default function Home() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -38,7 +46,7 @@ export default function Home() {
         </Tabs>
       </main>
       <footer className="py-4 text-center text-sm text-muted-foreground">
-        © {currentYear} ShikshaAI. All rights reserved.
+        {currentYear ? `© ${currentYear} ShikshaAI. All rights reserved.` : ''}
       </footer>
     </div>
   );
