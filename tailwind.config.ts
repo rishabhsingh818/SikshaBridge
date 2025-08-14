@@ -1,4 +1,6 @@
 import type { Config } from 'tailwindcss';
+import {colors} from 'tailwindcss/colors';
+
 
 export default {
   darkMode: ['class'],
@@ -21,6 +23,7 @@ export default {
         body: ['Inter', 'sans-serif'],
       },
       colors: {
+        ...colors,
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
