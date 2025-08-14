@@ -37,7 +37,7 @@ export default function Home() {
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center">
               <BookOpen className="h-8 w-auto text-primary" />
-              <span className="ml-3 text-2xl font-bold">ShikshaAI</span>
+              <span className="ml-3 text-2xl font-bold">SikshaBridge</span>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
               <Link href="/" className="hover:text-primary transition-colors">
@@ -78,7 +78,7 @@ export default function Home() {
                     AI-Powered Education for Every Student
                   </h2>
                   <p className="mt-4 text-lg text-gray-400">
-                    ShikshaAI simplifies textbooks, generates quizzes, and provides personalized guidance to help you succeed.
+                    SikshaBridge simplifies textbooks, generates quizzes, and provides personalized guidance to help you succeed.
                   </p>
                   <Link href="/signup">
                     <Button size="lg" className="mt-8">Get Started</Button>
