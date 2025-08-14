@@ -31,8 +31,8 @@ const FeatureCard = ({
 export default function Home() {
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 text-foreground">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-lg border-b border-white/20">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black text-foreground">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/30 backdrop-blur-lg border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center">
@@ -71,13 +71,13 @@ export default function Home() {
             <div className="items-center flex flex-wrap">
               <div className="w-full lg:w-8/12 px-4 ml-auto mr-auto text-center lg:text-left">
                 <div className="pr-0 lg:pr-12">
-                  <h1 className="font-extrabold text-5xl md:text-6xl my-4 text-gray-800">
+                  <h1 className="font-extrabold text-5xl md:text-6xl my-4 text-gray-200">
                     Unlock Your Learning Potential
                   </h1>
-                  <h2 className="font-semibold text-3xl md:text-4xl text-gray-700">
+                  <h2 className="font-semibold text-3xl md:text-4xl text-gray-300">
                     AI-Powered Education for Every Student
                   </h2>
-                  <p className="mt-4 text-lg text-gray-600">
+                  <p className="mt-4 text-lg text-gray-400">
                     ShikshaAI simplifies textbooks, generates quizzes, and provides personalized guidance to help you succeed.
                   </p>
                   <Link href="/signup">

@@ -39,7 +39,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-900 via-slate-900 to-black p-4">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black p-4">
       <Card className="w-full max-w-md bg-card/60 backdrop-blur-sm border border-white/10 text-card-foreground">
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
