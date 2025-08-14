@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from 'react';
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import Image from 'next/image';
 import { simplifyTextbookContent } from '@/ai/flows/simplify-textbook-content';
 import { useToast } from "@/hooks/use-toast";
+import { Label } from "@/components/ui/label";
 
 
 export default function SimplifyPage() {
@@ -145,16 +147,3 @@ export default function SimplifyPage() {
     </div>
   );
 }
-
-// Add a Label component that was missing
-const Label = React.forwardRef<
-  React.ElementRef<'label'>,
-  React.ComponentPropsWithoutRef<'label'>
->(({ className, ...props }, ref) => (
-  <label
-    ref={ref}
-    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-    {...props}
-  />
-));
-Label.displayName = 'Label';
