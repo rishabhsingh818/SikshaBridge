@@ -187,12 +187,6 @@ export default function Home() {
                 title="Quiz Generation"
                 description="Test your knowledge with interactive multiple-choice quizzes from any content."
               />
-              <FeatureCard
-                href="/guidance"
-                icon={<Lightbulb size={48} />}
-                title="Personalized Guidance"
-                description="Get matched with scholarships and receive motivational support."
-              />
             </div>
           </div>
         </section>
