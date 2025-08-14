@@ -3,7 +3,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, HelpCircle, Lightbulb, Mic } from "lucide-react";
+import { BookOpen, HelpCircle, Lightbulb } from "lucide-react";
 import Link from 'next/link';
 
 const FeatureCard = ({
@@ -117,12 +117,6 @@ export default function Home() {
                 icon={<Lightbulb size={48} />}
                 title="Personalized Guidance"
                 description="Get matched with scholarships and receive motivational support."
-              />
-              <FeatureCard
-                href="/audio"
-                icon={<Mic size={48} />}
-                title="Audio Explanations"
-                description="Listen to your textbook chapters and explanations on the go."
               />
             </div>
           </div>
