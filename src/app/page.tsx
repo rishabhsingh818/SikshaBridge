@@ -1,9 +1,8 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, HelpCircle, Lightbulb, Mail, Instagram, Github } from "lucide-react";
+import { BookOpen, HelpCircle, Lightbulb, Mail, Instagram, Github, Linkedin } from "lucide-react";
 import Link from 'next/link';
 import {
   DropdownMenu,
@@ -76,6 +75,12 @@ export default function Home() {
                     <a href="https://github.com/rishabhsingh818" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
                       <Github className="mr-2 h-4 w-4" />
                       <span>GitHub</span>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="https://www.linkedin.com/in/rishabhsingh818" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                      <Linkedin className="mr-2 h-4 w-4" />
+                      <span>LinkedIn</span>
                     </a>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
