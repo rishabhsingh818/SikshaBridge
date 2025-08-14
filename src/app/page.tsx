@@ -2,14 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, HelpCircle, Lightbulb, Mail, Instagram, Github, Linkedin } from "lucide-react";
+import { BookOpen, HelpCircle, Lightbulb, Mail, Instagram, Github, Linkedin, Menu } from "lucide-react";
 import Link from 'next/link';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
+import { useState } from "react";
 
 const FeatureCard = ({
   icon,
@@ -86,13 +88,61 @@ export default function Home() {
                 </DropdownMenuContent>
               </DropdownMenu>
             </nav>
-            <div className="flex items-center space-x-2">
+            <div className="hidden md:flex items-center space-x-2">
               <Link href="/login">
                 <Button variant="outline" className="text-foreground border-primary hover:bg-primary hover:text-primary-foreground">Login</Button>
               </Link>
               <Link href="/signup">
                 <Button>Sign Up</Button>
               </Link>
+            </div>
+            <div className="md:hidden">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuItem asChild><Link href="/" className="cursor-pointer">Home</Link></DropdownMenuItem>
+                  <DropdownMenuItem asChild><Link href="#features" className="cursor-pointer">Features</Link></DropdownMenuItem>
+                  <DropdownMenuItem asChild><Link href="#" className="cursor-pointer">About</Link></DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <a href="mailto:rishabhsinghrajput8181@gmail.com" className="cursor-pointer">
+                      <Mail className="mr-2 h-4 w-4" />
+                      <span>Email</span>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="https://instagram.com/rishabhsingh818" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                      <Instagram className="mr-2 h-4 w-4" />
+                      <span>Instagram</span>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="https://github.com/rishabhsingh818" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                      <Github className="mr-2 h-4 w-4" />
+                      <span>GitHub</span>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="https://www.linkedin.com/in/rishabhsingh818" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                      <Linkedin className="mr-2 h-4 w-4" />
+                      <span>LinkedIn</span>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <div className="p-2">
+                    <Link href="/login">
+                      <Button variant="outline" className="w-full mb-2 text-foreground border-primary hover:bg-primary hover:text-primary-foreground">Login</Button>
+                    </Link>
+                    <Link href="/signup">
+                      <Button className="w-full">Sign Up</Button>
+                    </Link>
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>
