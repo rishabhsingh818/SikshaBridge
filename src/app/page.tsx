@@ -3,8 +3,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, HelpCircle, Lightbulb } from "lucide-react";
+import { BookOpen, HelpCircle, Lightbulb, Mail, Instagram, Github } from "lucide-react";
 import Link from 'next/link';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const FeatureCard = ({
   icon,
@@ -49,9 +55,31 @@ export default function Home() {
               <Link href="#" className="hover:text-primary transition-colors">
                 About
               </Link>
-              <Link href="#" className="hover:text-primary transition-colors">
-                Contact
-              </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="link" className="text-foreground hover:text-primary transition-colors p-0 text-base">Contact</Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem asChild>
+                    <a href="mailto:rishabhsinghrajput8181@gmail.com" className="cursor-pointer">
+                      <Mail className="mr-2 h-4 w-4" />
+                      <span>Email</span>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="https://instagram.com/rishabhsingh818" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                      <Instagram className="mr-2 h-4 w-4" />
+                      <span>Instagram</span>
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="https://github.com/rishabhsingh818" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                      <Github className="mr-2 h-4 w-4" />
+                      <span>GitHub</span>
+                    </a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </nav>
             <div className="flex items-center space-x-2">
               <Link href="/login">
