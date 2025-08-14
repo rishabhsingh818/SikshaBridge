@@ -5,32 +5,30 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, HelpCircle, Lightbulb, Mic } from "lucide-react";
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
 const FeatureCard = ({
   icon,
   title,
   description,
+  href,
 }: {
   icon: React.ReactNode;
   title: string;
   description: string;
+  href: string;
 }) => (
-  <Card className="bg-card/80 backdrop-blur-sm border-primary/20 text-card-foreground shadow-lg rounded-lg overflow-hidden flex-1 basis-full md:basis-1/4 min-w-[280px]">
-    <CardContent className="p-8 text-center">
-      <div className="flex justify-center items-center mb-6 h-12 w-12 mx-auto text-primary">{icon}</div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
-    </CardContent>
-  </Card>
+  <Link href={href} className="flex-1 basis-full md:basis-1/4 min-w-[280px]">
+    <Card className="bg-card text-card-foreground shadow-lg rounded-lg overflow-hidden h-full hover:bg-accent hover:text-accent-foreground transition-colors">
+      <CardContent className="p-8 text-center">
+        <div className="flex justify-center items-center mb-6 h-12 w-12 mx-auto text-primary">{icon}</div>
+        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <p className="text-muted-foreground">{description}</p>
+      </CardContent>
+    </Card>
+  </Link>
 );
 
 export default function Home() {
-  const [year, setYear] = useState<number | null>(null);
-
-  useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -74,7 +72,7 @@ export default function Home() {
           >
             <span
               id="blackOverlay"
-              className="w-full h-full absolute opacity-50 bg-black"
+              className="w-full h-full absolute opacity-95 bg-black"
             ></span>
           </div>
           <div className="container relative mx-auto">
@@ -103,21 +101,25 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap gap-6 justify-center">
               <FeatureCard
+                href="/simplify"
                 icon={<BookOpen size={48} />}
                 title="Textbook Simplification"
                 description="Understand complex topics with AI-powered explanations in your native language."
               />
               <FeatureCard
+                href="/quiz"
                 icon={<HelpCircle size={48} />}
                 title="Quiz Generation"
                 description="Test your knowledge with interactive multiple-choice quizzes from any content."
               />
               <FeatureCard
+                href="/guidance"
                 icon={<Lightbulb size={48} />}
                 title="Personalized Guidance"
                 description="Get matched with scholarships and receive motivational support."
               />
               <FeatureCard
+                href="/audio"
                 icon={<Mic size={48} />}
                 title="Audio Explanations"
                 description="Listen to your textbook chapters and explanations on the go."
