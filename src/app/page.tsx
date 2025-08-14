@@ -18,7 +18,7 @@ const FeatureCard = ({
   href: string;
 }) => (
   <Link href={href} className="flex-1 basis-full md:basis-1/4 min-w-[280px]">
-    <Card className="bg-card text-card-foreground shadow-lg rounded-lg overflow-hidden h-full hover:bg-accent hover:text-accent-foreground transition-colors">
+    <Card className="bg-card/60 text-card-foreground shadow-lg rounded-lg overflow-hidden h-full backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300">
       <CardContent className="p-8 text-center">
         <div className="flex justify-center items-center mb-6 h-12 w-12 mx-auto text-primary">{icon}</div>
         <h3 className="text-xl font-bold mb-2">{title}</h3>
@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-lg border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center">
@@ -68,11 +68,11 @@ export default function Home() {
       <main>
         <div className="relative pt-32 pb-32 flex content-center items-center justify-center min-h-[90vh]">
           <div
-            className="absolute top-0 w-full h-full bg-center bg-cover"
+            className="absolute top-0 w-full h-full bg-center bg-cover bg-gradient-to-br from-indigo-900 via-slate-900 to-black"
           >
             <span
               id="blackOverlay"
-              className="w-full h-full absolute opacity-95 bg-black"
+              className="w-full h-full absolute opacity-50 bg-black"
             ></span>
           </div>
           <div className="container relative mx-auto">
@@ -104,7 +104,7 @@ export default function Home() {
                 href="/simplify"
                 icon={<BookOpen size={48} />}
                 title="Textbook Simplification"
-                description="Understand complex topics with AI-powered explanations in your native language."
+                description="Understand complex topics with AI-powered explanations."
               />
               <FeatureCard
                 href="/quiz"

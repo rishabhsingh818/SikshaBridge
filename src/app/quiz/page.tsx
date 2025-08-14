@@ -102,7 +102,7 @@ export default function QuizPage() {
     if (!quiz || !submitted) return null;
     const score = getScore();
     return (
-        <Card className="mt-6">
+        <Card className="mt-6 bg-transparent border-none shadow-none">
             <CardHeader>
                 <CardTitle>Quiz Results</CardTitle>
                 <CardDescription>You scored {score} out of {quiz.length}!</CardDescription>
@@ -124,7 +124,7 @@ export default function QuizPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 bg-background/50 backdrop-blur-lg border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/">
@@ -139,7 +139,7 @@ export default function QuizPage() {
       </header>
       <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
+            <Card className="bg-card/60 backdrop-blur-sm border border-white/10">
                 <CardHeader>
                     <CardTitle>Generate a Quiz</CardTitle>
                 </CardHeader>
@@ -169,7 +169,7 @@ export default function QuizPage() {
                 </CardContent>
             </Card>
 
-            <Card>
+            <Card className="bg-card/60 backdrop-blur-sm border border-white/10">
                 <CardHeader>
                     <CardTitle>Your Quiz</CardTitle>
                     <CardDescription>Test your knowledge.</CardDescription>
@@ -200,8 +200,8 @@ export default function QuizPage() {
                         <div className="space-y-6">
                             {renderQuizResult()}
                             {quiz.map((q, i) => (
-                                <div key={i} className="p-4 rounded-md border space-y-2"
-                                     style={{ borderColor: userAnswers[i] === q.correctAnswer ? 'green' : 'red' }}>
+                                <div key={i} className="p-4 rounded-md border space-y-2 bg-black/20"
+                                     style={{ borderColor: userAnswers[i] === q.correctAnswer ? 'rgba(74, 222, 128, 0.4)' : 'rgba(248, 113, 113, 0.4)' }}>
                                     <p><strong>{i+1}. {q.questionText}</strong></p>
                                     <div className="space-y-2">
                                         {q.options.map((option, j) => {
@@ -209,8 +209,8 @@ export default function QuizPage() {
                                             const isUserAnswer = userAnswers[i] === option;
                                             return (
                                                 <div key={j} className={cn("flex items-center space-x-2 p-2 rounded-md",
-                                                    isCorrect && "bg-green-900/50",
-                                                    isUserAnswer && !isCorrect && "bg-red-900/50"
+                                                    isCorrect && "bg-green-500/30",
+                                                    isUserAnswer && !isCorrect && "bg-red-500/30"
                                                 )}>
                                                     {isCorrect ? <CheckCircle className="h-4 w-4 text-green-400" /> : (isUserAnswer ? <XCircle className="h-4 w-4 text-red-400"/> : <div className="w-4 h-4" />) }
                                                     <span>{option}</span>
@@ -218,7 +218,7 @@ export default function QuizPage() {
                                             )
                                         })}
                                     </div>
-                                    <div className="mt-2 p-2 bg-accent rounded-md">
+                                    <div className="mt-2 p-2 bg-white/5 rounded-md">
                                         <p className="font-bold">Explanation:</p>
                                         <p>{q.explanation}</p>
                                     </div>

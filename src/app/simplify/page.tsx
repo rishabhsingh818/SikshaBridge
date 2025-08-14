@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Upload, Loader2, Volume2 } from "lucide-react";
+import { ArrowLeft, Loader2, Volume2 } from "lucide-react";
 import Link from 'next/link';
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -107,7 +107,7 @@ export default function SimplifyPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 bg-background/50 backdrop-blur-lg border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/">
@@ -122,7 +122,7 @@ export default function SimplifyPage() {
       </header>
       <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card>
+          <Card className="bg-card/60 backdrop-blur-sm border border-white/10">
             <CardHeader>
               <CardTitle>Simplify Your Textbook</CardTitle>
               <CardDescription>Upload an image of a page or paste text to get a simplified explanation.</CardDescription>
@@ -154,7 +154,7 @@ export default function SimplifyPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-card/60 backdrop-blur-sm border border-white/10">
             <CardHeader>
               <CardTitle>Simplified Content</CardTitle>
               <CardDescription>Your easy-to-understand explanation will appear here.</CardDescription>

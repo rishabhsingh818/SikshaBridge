@@ -39,8 +39,8 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
-      <Card className="w-full max-w-md">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-900 via-slate-900 to-black p-4">
+      <Card className="w-full max-w-md bg-card/60 backdrop-blur-sm border border-white/10 text-card-foreground">
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>Enter your email below to login to your account.</CardDescription>
@@ -56,6 +56,7 @@ export default function LoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="bg-background/50 border-white/20"
               />
             </div>
             <div className="space-y-2">
@@ -66,6 +67,7 @@ export default function LoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="bg-background/50 border-white/20"
               />
             </div>
             <Button type="submit" className="w-full">
@@ -74,7 +76,7 @@ export default function LoginPage() {
           </form>
         </CardContent>
         <CardFooter className="text-sm">
-          <p>Don't have an account? <Link href="/signup" className="underline">Sign up</Link></p>
+          <p>Don't have an account? <Link href="/signup" className="underline hover:text-primary">Sign up</Link></p>
         </CardFooter>
       </Card>
     </div>

@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function GuidancePage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
-       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
+       <header className="sticky top-0 z-50 bg-background/50 backdrop-blur-lg border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/">
@@ -22,7 +22,7 @@ export default function GuidancePage() {
         </div>
       </header>
       <main className="flex-1 flex items-center justify-center">
-        <Card className="w-full max-w-2xl">
+        <Card className="w-full max-w-2xl bg-card/60 backdrop-blur-sm border border-white/10">
           <CardHeader>
             <CardTitle>Get Personalized Guidance</CardTitle>
           </CardHeader>
