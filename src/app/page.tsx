@@ -6,6 +6,7 @@ import { ScholarshipGuidance } from "@/components/app/ScholarshipGuidance";
 import { BookOpen, Lightbulb, Award } from "lucide-react";
 
 export default function Home() {
+  const currentYear = new Date().getFullYear();
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -37,7 +38,7 @@ export default function Home() {
         </Tabs>
       </main>
       <footer className="py-4 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} ShikshaAI. All rights reserved.
+        © {currentYear} ShikshaAI. All rights reserved.
       </footer>
     </div>
   );
