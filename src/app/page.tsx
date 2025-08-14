@@ -18,7 +18,7 @@ const FeatureCard = ({
   href: string;
 }) => (
   <Link href={href} className="flex-1 basis-full md:basis-1/4 min-w-[280px]">
-    <Card className="bg-card/60 text-card-foreground shadow-lg rounded-lg overflow-hidden h-full backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300">
+    <Card className="bg-white/10 text-card-foreground shadow-lg rounded-2xl overflow-hidden h-full backdrop-blur-lg border border-white/20 hover:border-white/40 transition-all duration-300">
       <CardContent className="p-8 text-center">
         <div className="flex justify-center items-center mb-6 h-12 w-12 mx-auto text-primary">{icon}</div>
         <h3 className="text-xl font-bold mb-2">{title}</h3>
@@ -31,8 +31,8 @@ const FeatureCard = ({
 export default function Home() {
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-lg border-b border-white/10">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 text-foreground">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-lg border-b border-white/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center">
@@ -65,27 +65,19 @@ export default function Home() {
         </div>
       </header>
 
-      <main>
-        <div className="relative pt-32 pb-32 flex content-center items-center justify-center min-h-[90vh]">
-          <div
-            className="absolute top-0 w-full h-full bg-center bg-cover bg-gradient-to-br from-indigo-900 via-slate-900 to-black"
-          >
-            <span
-              id="blackOverlay"
-              className="w-full h-full absolute opacity-50 bg-black"
-            ></span>
-          </div>
+      <main className="pt-20">
+        <div className="relative pt-32 pb-32 flex content-center items-center justify-center min-h-[calc(100vh-5rem)]">
           <div className="container relative mx-auto">
             <div className="items-center flex flex-wrap">
               <div className="w-full lg:w-8/12 px-4 ml-auto mr-auto text-center lg:text-left">
                 <div className="pr-0 lg:pr-12">
-                  <h1 className="text-white font-extrabold text-5xl md:text-6xl my-4">
+                  <h1 className="font-extrabold text-5xl md:text-6xl my-4 text-gray-800">
                     Unlock Your Learning Potential
                   </h1>
-                  <h2 className="text-white font-semibold text-3xl md:text-4xl">
+                  <h2 className="font-semibold text-3xl md:text-4xl text-gray-700">
                     AI-Powered Education for Every Student
                   </h2>
-                  <p className="mt-4 text-lg text-gray-300">
+                  <p className="mt-4 text-lg text-gray-600">
                     ShikshaAI simplifies textbooks, generates quizzes, and provides personalized guidance to help you succeed.
                   </p>
                   <Link href="/signup">
@@ -97,7 +89,7 @@ export default function Home() {
           </div>
         </div>
         
-        <section id="features" className="py-20 bg-background">
+        <section id="features" className="py-20">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap gap-6 justify-center">
               <FeatureCard
