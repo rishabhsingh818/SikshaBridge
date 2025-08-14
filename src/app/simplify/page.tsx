@@ -4,12 +4,13 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Upload, Loader2 } from "lucide-react";
+import { ArrowLeft, Upload, Loader2, Volume2 } from "lucide-react";
 import Link from 'next/link';
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import Image from 'next/image';
 import { simplifyTextbookContent } from '@/ai/flows/simplify-textbook-content';
+import { textToSpeech } from '@/ai/flows/text-to-speech';
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 
@@ -20,6 +21,8 @@ export default function SimplifyPage() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [simplifiedContent, setSimplifiedContent] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isGeneratingAudio, setIsGeneratingAudio] = useState(false);
+  const [audioDataUri, setAudioDataUri] = useState<string | null>(null);
   const { toast } = useToast();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,6 +49,7 @@ export default function SimplifyPage() {
     
     setIsLoading(true);
     setSimplifiedContent('');
+    setAudioDataUri(null);
 
     try {
         let image_data_uri = '';
@@ -73,6 +77,31 @@ export default function SimplifyPage() {
         });
     } finally {
         setIsLoading(false);
+    }
+  };
+
+  const handleSpeakAloud = async () => {
+    if (!simplifiedContent) {
+      toast({
+        variant: "destructive",
+        title: "No Content",
+        description: "There is no simplified content to speak.",
+      });
+      return;
+    }
+    setIsGeneratingAudio(true);
+    try {
+      const result = await textToSpeech({ text: simplifiedContent });
+      setAudioDataUri(result.audioDataUri);
+    } catch (error) {
+      console.error("Audio generation failed:", error);
+      toast({
+        variant: "destructive",
+        title: "Audio Generation Failed",
+        description: "An error occurred while generating the audio.",
+      });
+    } finally {
+      setIsGeneratingAudio(false);
     }
   };
 
@@ -137,7 +166,22 @@ export default function SimplifyPage() {
                     </div>
                 ) : (
                     <div className="prose dark:prose-invert max-w-none">
-                        {simplifiedContent ? <p>{simplifiedContent}</p> : <p className="text-muted-foreground">Your simplified content will be displayed here.</p>}
+                        {simplifiedContent ? (
+                            <div>
+                                <p>{simplifiedContent}</p>
+                                <div className="flex items-center space-x-2 mt-4">
+                                  <Button onClick={handleSpeakAloud} disabled={isGeneratingAudio || !simplifiedContent}>
+                                      {isGeneratingAudio ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Volume2 className="mr-2 h-4 w-4" />}
+                                      Speak Aloud
+                                  </Button>
+                                  {audioDataUri && (
+                                    <audio controls autoPlay src={audioDataUri}>
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                  )}
+                                </div>
+                            </div>
+                        ) : <p className="text-muted-foreground">Your simplified content will be displayed here.</p>}
                     </div>
                 )}
             </CardContent>
